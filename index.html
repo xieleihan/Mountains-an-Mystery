@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>妙笔千山 -简易画板</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="./images/peacock_flat.png">
+    <link rel="apple-touch-icon" href="./images/peacock_flat.png">
+    <link rel="bookmark" href="./images/peacock_flat.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="./images/peacock_flat.png">
+</head>
+<body>
+    <div class="box">
+        <div class="controller">
+            <img src="./images/peacock_flat.png" alt="">
+            <span class="title">简易画板- canvas绘图</span>
+            <span class="colorBoxTilte">颜色:<div class="pen" style="width: 32px;height: 32px; margin-top: 10px;"><img style="width: 100%;height: 100%;" src="./images/pen.png" alt=""></div></span>
+            <div class="colorBox">
+                <div class="redBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="greenBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="blueBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="yellowBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="purpleBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="orangeBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="whiteBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="blackBox">
+                    <p class="displayColor"></p>
+                </div>
+                <div class="colorRandomBox">
+                    <label for="">调色盘:</label>
+                    <input type="color" class="colorInputBox">
+                </div>
+            </div>
+            <div class="boldBox">
+                <span class="boldRandom">线条粗细:</span>
+                <input class="boldInput" type="range" min="1" max="10" step="1" value="1"><span class="indicator" style="margin-left: 5px;opacity: 0;">1</span>
+            </div>
+            <div class="toolBox">
+                <div class="eraser">
+                    <img src="./images/橡皮,擦除,橡皮擦.png" alt="">
+                    <p>橡皮擦</p>
+                </div>
+                <div class="bucket">
+                    <img src="./images/油漆桶.png" alt="">
+                    <p>填充</p>
+                </div>
+                <div id="mobile" class="mobile">
+                    <img src="./images/24gl-move.png" alt="">
+                    <div id="mobileBox" class="mobileBox">
+                        <div class="triangle"></div>
+                        <div class="boxContent">
+                            <button class="setTriangle">三角形</button>
+                            <button class="setRectangular">矩形</button>
+                            <button class="setCircular">圆形</button>
+                        </div>
+                    </div>
+                    <p>边框</p>
+                </div>
+            </div>
+            <div class="functionBox">
+                <button id="clearCanvas"><img src="./images/回收站.png" alt="">清空画布</button>
+                <button id="downloadCanvas"><img src="./images/下载.png" alt="">下载</button>
+            </div>
+        </div>
+        <div class="canvas">
+            <canvas id="myCanvas"></canvas>
+        </div>
+    </div>
+</body>
+<script src="./js/main.js"></script>
+</html>

@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    width: 100dvw;
+    flex-direction: column;
+    background: url('../images/page-bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+.canvas {
+    background-color: white;
+    height: calc(100% - 100px);
+}
+
+canvas {
+    cursor: url('../images/pen.png') 0 28, auto;
+}
+
+.box {
+    width: 70dvw;
+    height: 70dvh;
+    outline: 1px solid black;
+    border-radius: 5px;
+}
+
+.box .controller {
+    width: 100%;
+    height: 100px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row;
+    user-select: none;
+}
+
+.box .controller img {
+    height: 100%;
+    width: 100px;
+    display: block;
+}
+
+.box .controller .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+    line-height: 100px;
+    display: inline-block;
+    cursor: pointer;
+    border-right: 1px dotted #ccc;
+    padding-right: 10px;
+}
+
+.box .controller .colorBox {
+    height: 100%;
+    width: 260px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    margin-right: 20px;
+}
+
+.box .controller .colorBox div {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+    position: relative;
+}
+
+.box .controller .colorBox div .displayColor {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -140%;
+    left: 0px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: none;
+}
+
+.box .controller .colorBox div:hover {
+    border: 3px solid black;
+}
+
+.box .controller .colorBox .redBox {
+    background-color: red;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .greenBox {
+    background-color: green;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .blueBox {
+    background-color: blue;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .yellowBox {
+    background-color: yellow;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .purpleBox {
+    background-color: purple;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .orangeBox {
+    background-color: orange;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .whiteBox {
+    background-color: white;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .blackBox {
+    background-color: black;
+    cursor: url('../images/吸管-01.png') 0 27, auto;
+}
+
+.box .controller .colorBox .colorInputBox {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.box .controller .colorBox .colorRandomBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: fit-content;
+    height: 40px;
+    cursor: default;
+}
+
+.box .controller .colorBoxTilte {
+    font-size: 14px;
+    text-wrap: wrap;
+    margin-left: 10px;
+    display: block;
+    height: 70px;
+}
+
+.box .controller .boldBox {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    border-right: 1px dotted #ccc;
+    margin-right: 20px;
+}
+
+.box .controller .boldInput {
+    height: 30%;
+}
+
+.box .controller .toolBox {
+    height: 100%;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.box .controller .toolBox div {
+    width: 32px;
+    height: 32px;
+    margin-right: 20px;
+}
+
+.box .controller .toolBox img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.box .controller .toolBox p {
+    font-size: 12px;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.box .controller .functionBox {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box .controller .functionBox button {
+    display: flex;
+    height: calc(50% - 10px);
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.box .controller .functionBox button img {
+    width: 20px;
+    height: 20px;
+
+}
+
+.box .controller .toolBox .mobile{
+    position: relative;
+}
+
+.box .controller .toolBox .mobile .mobileBox{
+    display: none;
+    position: absolute;
+    top: 16px;
+    left: -35px;
+    width: 100px;
+    height: 130px;
+    
+    border-radius: 5px;
+    z-index: 1;
+    margin-right: 0;
+}
+
+.box .controller .toolBox .mobile .mobileBox .triangle{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f1f1f1;
+    border-top: none;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.box .controller .toolBox .mobile .mobileBox .boxContent{
+    width: 100%;
+    height: 100px;
+    margin-right: 0;
+    background-color: #f1f1f1;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box .controller .toolBox .mobile .mobileBox .boxContent button{
+    width: 60%;
+    height: 20px;
+}
