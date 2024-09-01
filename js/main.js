@@ -297,4 +297,102 @@ window.onload = function () {
         }
     }
 
+    var setTriangle = document.querySelector('.setTriangle');
+
+    setTriangle.onclick = function () {
+        // 隐藏其他元素并设置鼠标样式
+        mobileBox.style.display = 'none';
+        canvas.style.cursor = 'url(./images/24gl-move.png) 15 15, auto';
+
+        // 初始化
+        canvas.onmousedown = null;
+
+        canvas.onmousedown = function (e) {
+            var ctx = canvas.getContext('2d');
+            var startX = e.offsetX;
+            var startY = e.offsetY;
+
+            ctx.beginPath();
+
+            canvas.onmousemove = function (e) {
+                var endX = e.offsetX;
+                var endY = e.offsetY;
+
+                if (endX <= 0 || endX >= canvas.width || endY <= 0 || endY >= canvas.height) {
+                    canvas.onmousemove = null;
+                    return;
+                }
+
+                // 计算三角形的第三个顶点坐标
+                var thirdX = startX + (endX - startX) * 2;
+                var thirdY = startY;
+
+                // 清除画布并绘制新的三角形
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+                ctx.lineTo(thirdX, thirdY);
+                ctx.closePath();
+                ctx.lineCap = 'round';
+                ctx.strokeStyle = nowColor;
+                ctx.lineWidth = boldInput.value;
+                ctx.stroke();
+
+                // 停止绘制
+                canvas.onmouseup = function () {
+                    canvas.onmousemove = null;
+                }
+            }
+        }
+    }
+
+    function drawGirdChart() {
+        var ctx = canvas.getContext('2d');
+        // 绘制格子图
+        function gridChart(x, y, mx, my) {
+            ctx.beginPath();
+            ctx.moveTo(mx, my);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = boldInput.value;
+            ctx.stroke();
+        }
+        for (var x = 0; x < canvas.width; x += 10) {
+            gridChart(x, 0, x, canvas.height);
+        }
+        for (var y = 0; y < canvas.height; y += 10) {
+            gridChart(0, y, canvas.width, y);
+        }
+    }
+
+    function drawNoteBookLine() {
+        var ctx = canvas.getContext('2d');
+        function noteBook(x, y, mx, my) {
+            ctx.beginPath();
+            ctx.moveTo(mx, my);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = boldInput.value;
+            ctx.stroke();
+        }
+        for (var y = 0; y < canvas.width; y += 30) {
+            noteBook(0, y, canvas.width, y);
+        }
+    }
+
+    var setCanvasGirdDisplay = document.querySelector('#setCanvasGirdDisplay');
+    setCanvasGirdDisplay.onclick = function () {
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawGirdChart();
+    }
+
+    var setNoteBookLine = document.querySelector('#setNoteBookLine');
+    setNoteBookLine.onclick = function () {
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawNoteBookLine();
+    }
+
 }
